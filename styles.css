@@ -1,0 +1,268 @@
+:root{
+    --forest-green: oklch(26.2% 0.051 172.552);
+    --rock: oklch(98.5% 0 none);
+    --cs-blue: oklch(28.652% 0.13977 265.298);
+    --cs-orange: oklch(76.9% 0.188 70.08);
+    
+}
+
+  /* Fixes the overflow causing a horizontal scrolling bar, need the width: 100% to be removed */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+ body{
+    height: 100vh;
+    font-family: Doto;
+    margin: 0;
+    padding: 0;
+}
+
+.reduced-margin{
+    margin: 5px 0;
+    padding: 0;
+}
+
+#header{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0px;
+    gap: 10px;
+    color: var(--forest-green);
+
+} 
+
+#nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--forest-green);
+    padding: 1.1em;
+}
+
+#nav a{
+    color: var(--rock);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+#back-img-container{
+    position: relative;
+    background-image: url(./media/images.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+#back-img-container::before{
+    /* All of this helps to darken out the background with the things inside staying opaque */
+    position: absolute;
+    inset: 0;
+    background-color: rgb(0 0 0 / 55%);
+    content: ""; 
+}
+
+#back-img-container .container{
+    /* All of this helps to darken out the background with the things inside staying opaque */
+    position: relative;
+    z-index: 1;
+}
+
+#back-img-container h2{
+    margin: 0;
+    color: var(--cs-orange);
+    font-weight: 700;
+    
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.reduced{
+    height: 80px;
+    fill: antiquewhite;
+}
+
+#location-point{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    color: antiquewhite;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+#location-point div{
+    margin-bottom: 5px;
+}
+
+.container button{
+    border: 1px solid var(--rock);
+    padding: 5px 18px;
+    border-radius: 5px;
+    background-color: var(--forest-green);
+    color: antiquewhite;
+    font-weight: 700;
+}
+
+.service-icon-reduced{
+    height: 50px;
+    fill: var(--rock);
+}
+
+.icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 150px;
+    height: 150px;
+    margin: 12px auto;
+    border-radius: 50%;
+    background-color: var(--cs-blue);
+}
+
+.titles{
+    font-weight: 700;
+    color: var(--cs-blue);
+}
+
+#my-services{
+    background-color: antiquewhite;
+    /* Helps the padding to grow/shrink depending on the scren */
+    padding: 20px clamp(20px, 15vw, 150px) 12px; 
+}
+
+#service-container{
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 18px 6px 10px;
+}
+
+#form-container{
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 4px;
+}
+
+#contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: min(100%, 520px);
+    box-sizing: border-box;
+    padding: 14px 18px 16px;
+    border-radius: 6px;
+    background-color: var(--cs-orange);
+    text-align: left;
+}
+
+#contact-form > p{
+    margin: 0 0 4px;
+    color: var(--forest-green);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+#contact-form label{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--rock);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.form-row{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+#contact-form input,
+#contact-form textarea{
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 3px;
+    padding: 8px;
+    background-color: var(--rock);
+    color: var(--cs-blue);
+    font: inherit;
+    font-weight: 400;
+}
+
+#contact-form textarea{
+    min-height: 108px;
+    resize: vertical;
+}
+
+#contact-form button{
+    align-self: flex-end;
+    border: 0;
+    border-radius: 3px;
+    padding: 8px 18px;
+    background-color: var(--cs-blue);
+    color: var(--rock);
+    font: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+#services{
+    display: grid;
+    /* helps */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    padding-top: 15px;
+}
+
+#footer{
+    text-align: center;
+    background-color: var(--cs-blue);
+    color: white;
+    padding: 10px 0px;
+}
+
+#footer p{
+    margin: 0;
+
+}
+
+@media (max-width: 600px){
+    /* Helps the padding to grow/shrink depending on the scren */
+    #my-services{
+        padding: 20px 12px 12px;
+    }
+
+    /* Helps the services stay in row when on a big screen but column when on a phone */
+    #services{
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #contact-form{
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .form-row{
+        grid-template-columns: 1fr;
+    }
+}
+
+
